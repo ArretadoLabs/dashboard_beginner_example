@@ -3,17 +3,7 @@ import pandas as pd
 import plotly.express as px
 
 
-#Criando uma exibição dos dados da planilha no modo wide, ou seja aproveitando toda a largura do monitor
 st.set_page_config(layout="wide")
-
-# Tarefas e pedidos que deverão ser transformados em gráficos.
-# Com uma visão mensal, eu gostaria de saber: 
-# o faturamento por unidade
-# o tipo de produto mais vendido 
-# Contribuição por filial
-# Desempenho da forma de pagamento
-# Como estão as avaliações das filiais
-
 
 
 df = pd.read_csv("supermarket_sales.csv", sep=";", decimal=",")
@@ -24,9 +14,8 @@ month = st.sidebar.selectbox("Mês", df["Month"].unique())
 
 df_filtered = df[df["Month"] == month]
 
-# Montando os gráficos com o streamlit
-col1, col2 = st.columns(2) #Aqui eu estou criando duas caixas ou dois "espaços" na tela para dois gráficos
-col3, col4, col5 = st.columns(3) #O mesmo vale aqui porém para 3 gráficos
+col1, col2 = st.columns(2) 
+col3, col4, col5 = st.columns(3) 
 
 
 # Criando os gráficos
